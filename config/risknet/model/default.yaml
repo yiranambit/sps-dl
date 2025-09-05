@@ -1,0 +1,12 @@
+max_sequence_length: 225
+token_embed_dim: 128 # NOTE: was 64
+age_embed_dim: 32
+num_heads: 6
+num_blocks: 4
+batch_size: 256
+epochs: 66
+n_trajectories: 1
+learning_rate: 0.00027
+
+eval_batch_size: 20
+eval_n_trajectories: 20

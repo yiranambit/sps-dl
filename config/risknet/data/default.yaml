@@ -1,0 +1,7 @@
+min_time_embed_period_in_days: 1
+max_time_embed_period_in_days: 7300 # 20 * 365
+min_followup_years_if_negative: 1
+min_pre_outcome_days_if_positive: 1
+min_events_per_sequence: 50
+num_trajectories_per_patient: 1
+month_endpoints: [6, 12, 24, 36, 60]

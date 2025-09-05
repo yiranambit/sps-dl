@@ -1,0 +1,63 @@
+defaults:
+  - _self_
+  - data: default
+
+hydra:
+  run:
+    dir: ./sps_data_1k_v2
+  job:
+    chdir: true
+
+paths:
+  code_info: null
+  patient_info: ../../input/input_demographic.csv
+  patient_claims:
+    - ../../input/input_claim_w_g2582.csv
+  code_inclusion_list: ../../input/top1k_code_no_g20_v2.csv
+  raw: ./sps_data_1k_v2
+
+name: SPS-G2582
+
+indication: "G2582"
+
+preprocess:
+  num_processes: 4
+  seed: 42
+
+model:
+  max_sequence_length: 225
+  token_embed_dim: 64
+  age_embed_dim: 32
+  num_heads: 6
+  num_blocks: 4
+  batch_size: 128
+  epochs: 300
+  n_trajectories: 1
+  learning_rate: 0.0005
+  eval_batch_size: 20
+  eval_n_trajectories: 20
+
+data:
+  min_time_embed_period_in_days: 1
+  max_time_embed_period_in_days: 7300
+  min_followup_years_if_negative: 1
+  min_pre_outcome_days_if_positive: 1
+  min_events_per_sequence: 30
+  num_trajectories_per_patient: 1
+  month_endpoints: [6, 12, 24, 36, 60]
+
+params:
+  code_num_chars: 10
+  num_negative_samples: 30000
+  test_size: 0.2
+  seed: 42
+  num_processes: 4
+  status_epilepticus_claims: false
+  
+  code_blacklist: []
+  minimal_days_between_same_code_claims: null
+  
+  filter_expr:
+    patient_info: "true"
+    patient_claims: "true"
+    code_inclusions: "selected_for_vocab == 1"

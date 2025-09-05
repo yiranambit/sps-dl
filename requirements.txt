@@ -1,0 +1,10 @@
+numpy==1.26.4
+pandas==2.2.2
+tensorflow==2.16.1
+scikit-learn==1.4.2
+scipy==1.13.0
+pandera==0.19.3
+polars==0.20.30
+altair==5.3.0
+vegafusion==1.6.9
+vegafusion-python-embed==1.6.9
