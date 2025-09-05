@@ -175,3 +175,5 @@ lpm/_version.py
 # Data directories
 sps_data_1k_v2/
 input/
+outputs/
+code_description.csv 
